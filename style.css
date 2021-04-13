@@ -50,6 +50,10 @@ header {
 }
 .tab .tab-content p { margin-left: 20rem; }
 
+.tab .tab-content .text p {
+margin-left: 1.5rem;
+}
+
 /* (E) OPEN TAB ON CHECKED */
 .tab input:checked ~ .tab-content { max-height: 100vh; }
 
@@ -83,8 +87,19 @@ footer {
       color: #ff00d4;
   }
 
+  .hello {
+    display: flex;
+  }
+
+  img {
+    margin-top:1rem;
+  }
+
 
   @media only screen and (max-width: 800px) {
     .tab .tab-content p { margin-left: 0rem; }
-
+    .hello {
+      display: block;
+    }
+    
   }
