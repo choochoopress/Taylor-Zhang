@@ -55,7 +55,7 @@ margin-left: 1.5rem;
 }
 
 /* (E) OPEN TAB ON CHECKED */
-.tab input:checked ~ .tab-content { max-height: 100vh; }
+.tab input:checked ~ .tab-content { max-height: 200vh; }
 
 /* (F) EXTRA - ADD ARROW INDICATOR */
 .tab label::before {
@@ -93,6 +93,7 @@ footer {
 
   img {
     margin-top:1rem;
+    width: 100%;
   }
 
 
