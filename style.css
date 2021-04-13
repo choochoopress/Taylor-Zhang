@@ -1,18 +1,18 @@
 
 body {
-    color: black;
-    margin-top: 3rem;
-    margin-left: 3rem;
-    margin-right: 3rem;
+  color: black;
+  margin-top: 3rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 
 ::selection {
-    background: #ff00d4; /* WebKit/Blink Browsers */
-  }
+  background: #ff00d4; /* WebKit/Blink Browsers */
+}
 
-  header {
-      margin-bottom: 3rem;
-  }
+header {
+    margin-bottom: 3rem;
+}
 
 
 
@@ -20,72 +20,74 @@ body {
 
 /* (A) TABS CONTAINER */
 .tab {
-    position: relative;
-    width: 100%;
-    margin-bottom: 3rem;
-  }
-  
-  /* (B) HIDE CHECKBOX */
-  .tab input { display: none; }
-  
-  /* (C) TAB LABEL */
-  .tab label {
-    display: flex;
-    margin-top: 10px;
-    color: black;
-    background: white;
-    cursor: pointer;
-    font-size:30px;
-  }
+  position: relative;
+  width: 100%;
+  margin-bottom: 3rem;
+}
 
-  .tab label:hover {
-      color:#ff00d4;
-  }
-  
-  /* (D) TAB CONTENT */
-  .tab .tab-content {
-    background:white;
-    /* CSS ANIMATION WILL NOT WORK WITH AUTO HEIGHT */
-    /* THIS IS WHY WE USE MAX-HEIGHT INSTEAD */
-    overflow: hidden;
-    transition: max-height 0.3s;
-    max-height: 0;
-  }
-  .tab .tab-content p { margin-left: 20rem; }
-  
-  /* (E) OPEN TAB ON CHECKED */
-  .tab input:checked ~ .tab-content { max-height: 100vh; }
-  
-  /* (F) EXTRA - ADD ARROW INDICATOR */
-  .tab label::before {
-    content: "\25b6";
-    right: 10px;
-    top: 10px;
-    display: block;
-    transition: all 0.4s;
-    margin-right:1rem;
-  }
-  .tab input:checked ~ label::after { transform: rotate(90deg); }
-  
-  /* (X) DOES NOT MATTER */
-  html, body { font-family: arial, sans-serif; }
+/* (B) HIDE CHECKBOX */
+.tab input { display: none; }
+
+/* (C) TAB LABEL */
+.tab label {
+  display: flex;
+  margin-top: 10px;
+  color: black;
+  background: white;
+  cursor: pointer;
+  font-size:30px;
+}
+
+.tab label:hover {
+    color:#ff00d4;
+}
+
+/* (D) TAB CONTENT */
+.tab .tab-content {
+  background:white;
+  /* CSS ANIMATION WILL NOT WORK WITH AUTO HEIGHT */
+  /* THIS IS WHY WE USE MAX-HEIGHT INSTEAD */
+  overflow: hidden;
+  transition: max-height 0.3s;
+  max-height: 0;
+}
+.tab .tab-content p { margin-left: 20rem; }
+
+/* (E) OPEN TAB ON CHECKED */
+.tab input:checked ~ .tab-content { max-height: 100vh; }
+
+/* (F) EXTRA - ADD ARROW INDICATOR */
+.tab label::before {
+  /* content: "\25b6"; */
+  content: "\2192";
+  right: 10px;
+  top: 10px;
+  display: block;
+  transition: all 0.4s;
+  margin-right:1rem;
+}
+.tab input:checked ~ label::after { transform: rotate(90deg); }
+
+/* (X) DOES NOT MATTER */
+html, body { font-family: arial, sans-serif; }
 
 /* fix this so it adjust (sticky) */
-  footer {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      color: black;
-      margin-left: 3rem;
-      margin-bottom: 3rem;
-    }
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: black;
+    margin-left: 3rem;
+    margin-bottom: 3rem;
+  }
 
-    a {
-        color: #ff00d4;
-    }
+  a {
+      color: #ff00d4;
+  }
 
 
-    @media only screen and (max-width: 600px) {
-        
-    }
+  @media only screen and (max-width: 800px) {
+    .tab .tab-content p { margin-left: 0rem; }
+
+  }
