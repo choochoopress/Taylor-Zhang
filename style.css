@@ -4,6 +4,7 @@ body {
   margin-top: 3rem;
   margin-left: 3rem;
   margin-right: 3rem;
+  font-family: 'Source Serif Pro', serif;
 }
 
 ::selection {
@@ -12,6 +13,8 @@ body {
 
 header {
     margin-bottom: 3rem;
+    font-family: 'Source Serif Pro', serif;
+
 }
 
 
@@ -33,6 +36,8 @@ header {
   background: white;
   cursor: pointer;
   font-size:30px;
+  font-family: 'Source Serif Pro', serif;
+
 }
 
 .tab label:hover {
@@ -47,6 +52,8 @@ header {
   overflow: hidden;
   transition: max-height 0.3s;
   max-height: 0;
+  font-family: 'Source Serif Pro', serif;
+
 }
 .tab .tab-content p { margin-left: 20rem; }
 
@@ -103,4 +110,7 @@ footer {
       display: block;
     }
     
+    .tab .tab-content .text p {
+      margin-left: 0px;
+      }
   }
