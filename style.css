@@ -1,19 +1,34 @@
+@font-face {
+  font-family: 'Romie';
+  src: url('Romie-Regular.woff') format ('woff')
+}
+
 
 body {
   color: black;
   margin-top: 3rem;
   margin-left: 3rem;
   margin-right: 3rem;
-  font-family: 'Source Serif Pro', serif;
+  font-family: 'Romie', Fallback, serif;
 }
 
+h1 {
+  font-size: 54px;
+  font-weight: normal;
+}
+
+p {
+font-size: 22px;
+line-height: 1.4;
+}
 ::selection {
   background: #ff00d4; /* WebKit/Blink Browsers */
 }
 
 header {
     margin-bottom: 3rem;
-    font-family: 'Source Serif Pro', serif;
+    font-family: 'Romie', Fallback, serif;
+    font-size: 22px;
 
 }
 
@@ -23,7 +38,14 @@ header {
   position: relative;
   width: 100%;
   margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
+
+label {
+  grid-column: 1 / span 2;
+}
+
 
 /* (B) HIDE CHECKBOX */
 .tab input { display: none; }
@@ -35,14 +57,15 @@ header {
   color: black;
   background: white;
   cursor: pointer;
-  font-size:30px;
-  font-family: 'Source Serif Pro', serif;
+  font-size:54px;
+  font-family: 'Romie', Fallback, serif;
 
 }
 
 .tab label:hover {
     color:#ff00d4;
 }
+
 
 /* (D) TAB CONTENT */
 .tab .tab-content {
@@ -52,32 +75,31 @@ header {
   overflow: hidden;
   transition: max-height 0.3s;
   max-height: 0;
-  font-family: 'Source Serif Pro', serif;
+  font-family: 'Romie', Fallback, serif;
 
 }
-.tab .tab-content p { margin-left: 20rem; }
 
-.tab .tab-content .text p {
-margin-left: 1.5rem;
-}
 
 /* (E) OPEN TAB ON CHECKED */
-.tab input:checked ~ .tab-content { max-height: 200vh; }
+.tab input:checked ~ .tab-content { 
+  max-height: 200vh; 
+}
+
 
 /* (F) EXTRA - ADD ARROW INDICATOR */
 .tab label::before {
   /* content: "\25b6"; */
-  content: "\2192";
+  content: ">";
   right: 10px;
   top: 10px;
   display: block;
   transition: all 0.4s;
   margin-right:1rem;
 }
-.tab input:checked ~ label::after { transform: rotate(90deg); }
+.tab input:checked ~ label::before { transform: rotate(90deg); }
 
 /* (X) DOES NOT MATTER */
-html, body { font-family: arial, sans-serif; }
+html, body { font-family: 'Romie', Fallback serif; }
 
 /* fix this so it adjust (sticky) */
 footer {
@@ -94,14 +116,21 @@ footer {
       color: #ff00d4;
   }
 
-  .hello {
+  /* .hello {
     display: flex;
-  }
+  } */
+
 
   img {
     margin-top:1rem;
     width: 100%;
+    /* grid-column: 1 / span 1; */
   }
+
+ .tab-content { 
+    grid-column: 2 / span 1;
+  }
+
 
 
   @media only screen and (max-width: 800px) {
@@ -113,4 +142,17 @@ footer {
     .tab .tab-content .text p {
       margin-left: 0px;
       }
+
+      p {
+        font-size: 16px;
+        }
+
+        .tab {
+          display: block;
+        }
+
+    h1, .tab label {
+      font-size: 32px;
+    }
+
   }
