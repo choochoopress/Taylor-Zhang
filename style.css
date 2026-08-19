@@ -139,7 +139,10 @@ footer {
     grid-column: 2 / span 1;
   } */
 
-/* Publications: three horizontal columns */
+/* Move Publications across the full width */
+.publications {
+  grid-column: 1 / span 2;
+}
 .publications-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
