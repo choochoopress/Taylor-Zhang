@@ -1,8 +1,7 @@
 @font-face {
-    font-family: 'Romie';
-    src: url('Romie-Regular.woff') format('woff');
-    font-display: swap;
-  }
+  font-family: 'Romie';
+  src: url('Romie-Regular.woff') format ('woff')
+}
 
   * { box-sizing: border-box; }
 
