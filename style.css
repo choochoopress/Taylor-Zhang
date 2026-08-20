@@ -4,7 +4,7 @@
 }
 
 
-/* BASIC RESET */
+/* RESET */
 
 * {
   box-sizing: border-box;
@@ -18,38 +18,49 @@ body {
 }
 
 
+/* BODY */
+
 body {
-  color: black;
   background: white;
-  font-family: 'Romie', Fallback, serif;
+  color: black;
+
+  font-family: 'Romie', serif;
 }
 
 
-/* MAIN LAYOUT */
+/* MAIN TWO-COLUMN STRUCTURE */
 
 .site {
   display: grid;
+
   grid-template-columns: 40% 60%;
+
   min-height: 100vh;
 }
 
 
-/* LEFT NAVIGATION */
+/* LEFT SIDE */
 
 .sidebar {
   padding: 3rem;
 }
 
 
-h1 {
-  margin: 0 0 2rem 0;
+/* NAME */
 
-  font-family: 'Romie', Fallback, serif;
-  font-size: 54px;
+h1 {
+  margin: 0 0 2.5rem 0;
+
+  font-family: 'Romie', serif;
+
+  font-size: 72px;
   font-weight: normal;
+
   line-height: 1;
 }
 
+
+/* NAVIGATION */
 
 nav {
   display: flex;
@@ -58,58 +69,54 @@ nav {
 }
 
 
-.nav-link {
+nav button {
+
+  margin: 0 0 0.4rem 0;
   padding: 0;
-  margin: 0 0 0.5rem 0;
 
   border: none;
-  background: none;
+
+  background: transparent;
 
   color: black;
 
-  font-family: 'Romie', Fallback, serif;
+  font-family: 'Romie', serif;
+
   font-size: 54px;
   font-weight: normal;
+
   line-height: 1.1;
 
   cursor: pointer;
+
   text-align: left;
 }
 
 
-.nav-link:hover {
+/* PINK HOVER */
+
+nav button:hover {
   color: #ff00d4;
 }
 
 
-.nav-link.active {
+/* CURRENTLY SELECTED */
+
+nav button.active {
   color: #ff00d4;
 }
 
 
 /* RIGHT CONTENT */
 
-.content {
-  padding: 3rem 3rem 6rem 0;
+#content {
+  padding-top: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 5rem;
 }
 
 
-/*
-  Every page occupies exactly the same
-  position in the right-hand content area.
-*/
-
-.page {
-  display: none;
-}
-
-
-.page.active {
-  display: block;
-}
-
-
-/* TEXT */
+/* BODY TEXT */
 
 .text {
   max-width: 700px;
@@ -120,8 +127,10 @@ p {
   margin-top: 0;
   margin-bottom: 2rem;
 
-  font-family: 'Romie', Fallback, serif;
+  font-family: 'Romie', serif;
+
   font-size: 22px;
+
   line-height: 1.4;
 }
 
@@ -146,8 +155,12 @@ a:hover {
 /* PUBLICATIONS */
 
 .publications-grid {
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
   gap: 3rem;
 }
 
@@ -173,7 +186,6 @@ a:hover {
 
   .site {
     display: block;
-    min-height: auto;
   }
 
 
@@ -183,25 +195,24 @@ a:hover {
 
 
   h1 {
+    font-size: 48px;
+
+    margin-bottom: 2rem;
+  }
+
+
+  nav button {
     font-size: 36px;
-    margin-bottom: 1.5rem;
   }
 
 
-  .nav-link {
-    font-size: 32px;
-    margin-bottom: 0.4rem;
-  }
-
-
-  .content {
+  #content {
     padding: 1.5rem;
   }
 
 
   p {
     font-size: 18px;
-    line-height: 1.4;
   }
 
 
@@ -212,11 +223,6 @@ a:hover {
 
   .publication-category {
     margin-bottom: 3rem;
-  }
-
-
-  .publication-category p:first-child {
-    margin-bottom: 2rem;
   }
 
 }
