@@ -1,13 +1,14 @@
 @font-face {
-  font-family: 'Romie';
-  src: url('Romie-Regular.woff') format ('woff')
-}
+    font-family: 'Romie';
+    src: url('Romie-Regular.woff') format('woff');
+    font-display: swap;
+  }
 
   * { box-sizing: border-box; }
 
   html, body {
     margin: 0;
-     background: #ffffff;
+    background: #ffffff;
     color: #000000;
     font-family: 'Romie', Fallback, serif;
   }
