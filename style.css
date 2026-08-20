@@ -1,184 +1,222 @@
 @font-face {
   font-family: 'Romie';
-  src: url('Romie-Regular.woff') format ('woff')
+  src: url('Romie-Regular.woff') format('woff');
+}
+
+
+/* BASIC RESET */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
 
 body {
   color: black;
-  margin-top: 3rem;
-  margin-left: 3rem;
-  margin-right: 3rem;
+  background: white;
   font-family: 'Romie', Fallback, serif;
 }
+
+
+/* MAIN LAYOUT */
+
+.site {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  min-height: 100vh;
+}
+
+
+/* LEFT NAVIGATION */
+
+.sidebar {
+  padding: 3rem;
+}
+
 
 h1 {
-  font-size: 72px;
+  margin: 0 0 2rem 0;
+
+  font-family: 'Romie', Fallback, serif;
+  font-size: 54px;
   font-weight: normal;
+  line-height: 1;
 }
+
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+.nav-link {
+  padding: 0;
+  margin: 0 0 0.5rem 0;
+
+  border: none;
+  background: none;
+
+  color: black;
+
+  font-family: 'Romie', Fallback, serif;
+  font-size: 54px;
+  font-weight: normal;
+  line-height: 1.1;
+
+  cursor: pointer;
+  text-align: left;
+}
+
+
+.nav-link:hover {
+  color: #ff00d4;
+}
+
+
+.nav-link.active {
+  color: #ff00d4;
+}
+
+
+/* RIGHT CONTENT */
+
+.content {
+  padding: 3rem 3rem 6rem 0;
+}
+
+
+/*
+  Every page occupies exactly the same
+  position in the right-hand content area.
+*/
+
+.page {
+  display: none;
+}
+
+
+.page.active {
+  display: block;
+}
+
+
+/* TEXT */
+
+.text {
+  max-width: 700px;
+}
+
 
 p {
-font-size: 22px;
-line-height: 1.4;
-}
-::selection {
-  background: #ff00d4; /* WebKit/Blink Browsers */
-}
+  margin-top: 0;
+  margin-bottom: 2rem;
 
-header {
-    margin-bottom: 3rem;
-    font-family: 'Romie', Fallback, serif;
-    font-size: 22px;
-
+  font-family: 'Romie', Fallback, serif;
+  font-size: 22px;
+  line-height: 1.4;
 }
 
 
-/* (A) TABS CONTAINER */
-.tab {
-  position: relative;
-  width: 100%;
-  margin-bottom: 3rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
+/* LINKS */
 
-label {
-  grid-column: 1 / span 2;
+a {
+  color: #ff00d4;
 }
 
 
-/* (B) HIDE CHECKBOX */
-.tab input { display: none; }
-
-/* (C) TAB LABEL */
-.tab label {
-  display: flex;
-  margin-top: 10px;
+a:hover {
   color: black;
-  background: white;
-  cursor: pointer;
-  font-size:54px;
-  font-family: 'Romie', Fallback, serif;
-
-}
-
-.tab label:hover {
-    color:#ff00d4;
 }
 
 
-/* (D) TAB CONTENT */
-.tab .tab-content {
-  background:white;
-  /* CSS ANIMATION WILL NOT WORK WITH AUTO HEIGHT */
-  /* THIS IS WHY WE USE MAX-HEIGHT INSTEAD */
-  overflow: hidden;
-  transition: max-height 0.3s;
-  max-height: 0;
-  font-family: 'Romie', Fallback, serif;
-
+::selection {
+  background: #ff00d4;
 }
 
 
-/* (E) OPEN TAB ON CHECKED */
-.tab input:checked ~ .tab-content { 
-  max-height: 200vh; 
-}
+/* PUBLICATIONS */
 
-
-/* (F) EXTRA - ADD ARROW INDICATOR */
-.tab label::before {
-  /* content: "\25b6"; */
-  content: ">";
-  right: 10px;
-  top: 10px;
-  display: block;
-  transition: all 0.4s;
-  margin-right:1rem;
-}
-.tab input:checked ~ label::before { transform: rotate(90deg); }
-
-/* (X) DOES NOT MATTER */
-html, body { font-family: 'Romie', Fallback serif; }
-
-/* fix this so it adjust (sticky) */
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: black;
-    margin-left: 3rem;
-    margin-bottom: 3rem;
-  }
-
-  a {
-      color: #ff00d4;
-  }
-
-  /* .hello {
-    display: flex;
-  } */
-
-
-  img {
-    margin-top:1rem;
-    width: 100%;
-    /* grid-column: 1 / span 1; */
-  }
-
- .tab-content { 
-    grid-column: 2 / span 1;
-  } 
-
-  /* .photo {
-    grid-column: 1 / span 1;
-  }
-  
-  .tab-content .hello .text {
-    grid-column: 2 / span 1;
-  } */
-
-/* Move Publications across the full width */
-.publications {
-  grid-column: 1 / span 2;
-   padding-top: 2rem;
-}
 .publications-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
-  margin-left: 0;
-  padding-left: 0;
 }
+
+
+.publication-category {
+  min-width: 0;
+}
+
 
 .publication-category p {
-  margin-top: 0;
+  margin-bottom: 2rem;
 }
 
 
-  @media only screen and (max-width: 800px) {
-    .tab .tab-content p { margin-left: 0rem; }
-    .hello {
-      display: block;
-    }
-    
-    .tab .tab-content .text p {
-      margin-left: 0px;
-      }
+.publication-category p:first-child {
+  margin-bottom: 3rem;
+}
 
-      p {
-        font-size: 16px;
-        }
 
-        .tab {
-          display: block;
-        }
+/* MOBILE */
 
-    h1, .tab label {
-      font-size: 32px;
-    }
+@media only screen and (max-width: 800px) {
 
+  .site {
+    display: block;
+    min-height: auto;
   }
 
 
+  .sidebar {
+    padding: 1.5rem;
+  }
+
+
+  h1 {
+    font-size: 36px;
+    margin-bottom: 1.5rem;
+  }
+
+
+  .nav-link {
+    font-size: 32px;
+    margin-bottom: 0.4rem;
+  }
+
+
+  .content {
+    padding: 1.5rem;
+  }
+
+
+  p {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+
+  .publications-grid {
+    display: block;
+  }
+
+
+  .publication-category {
+    margin-bottom: 3rem;
+  }
+
+
+  .publication-category p:first-child {
+    margin-bottom: 2rem;
+  }
+
+}
