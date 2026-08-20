@@ -1,279 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="cleartype" content="on">
+<title>Taylor Zhang</title>
+<link rel="shortcut icon" type="image/jpg" href="favicon.png">
 
-  <title>Taylor Zhang</title>
+<style>
+  @font-face {
+    font-family: 'Romie';
+    src: url('Romie-Regular.woff') format('woff');
+    font-display: swap;
+  }
 
-  <link rel="shortcut icon" type="image/jpg" href="favicon.png">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    background: #faf8f4;
+    color: #000000;
+    font-family: 'Romie', Fallback, serif;
+  }
+
+  ::selection {
+    background: #ff00d4;
+    color: #ffffff;
+  }
+
+  body {
+    padding: 3rem;
+  }
+
+  a {
+    color: #ff00d4;
+  }
+  a:hover {
+    color: #000000;
+  }
+
+  .layout {
+    display: flex;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: flex-start;
+  }
+
+  /* ---------- SIDEBAR ---------- */
+  .sidebar {
+    flex: 0 0 auto;
+    text-align: left;
+  }
+
+  h1.name {
+    font-weight: normal;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    margin: 0 0 1.5rem;
+    line-height: 1;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .nav-btn {
+    display: block;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: #000000;
+    cursor: pointer;
+    text-align: left;
+  }
+  .nav-btn:hover {
+    color: #ff00d4;
+  }
+  .nav-btn.active {
+    color: #ff00d4;
+  }
+  .nav-btn:focus-visible {
+    outline: 2px solid #000000;
+    outline-offset: 3px;
+  }
+
+  /* ---------- CONTENT ---------- */
+  .content {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .panel {
+    display: none;
+    max-width: 900px;
+  }
+  .panel.visible {
+    display: block;
+  }
+
+  /* Hello panel */
+  .hello-photo img {
+    max-width: 240px;
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+  .panel p {
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    line-height: 1.5;
+    margin: 0 0 1.2em;
+  }
+
+  /* Publications panel */
+  .pub-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  .pub-columns h2 {
+    font-weight: bold;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    margin: 0 0 1rem;
+  }
+  .pub-columns ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .pub-columns li {
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    line-height: 1.5;
+    margin-bottom: 1.1em;
+  }
+  @media (max-width: 900px) {
+    .pub-columns { grid-template-columns: 1fr; gap: 1.8rem; }
+  }
+
+  @media (max-width: 700px) {
+    .layout { flex-direction: column; }
+  }
+</style>
 </head>
-
 <body>
 
-  <main class="site">
+  <div class="layout">
 
-    <!-- LEFT NAVIGATION -->
     <aside class="sidebar">
-
-      <h1>Taylor Zhang</h1>
-
+      <h1 class="name">Taylor Zhang</h1>
       <nav>
-        <button class="nav-link" data-page="hello">Hello</button>
-        <button class="nav-link" data-page="publications">Publications</button>
-        <button class="nav-link" data-page="contact">Contact</button>
+        <button class="nav-btn" data-target="hello">Hello</button>
+        <button class="nav-btn" data-target="publications">Publications</button>
+        <button class="nav-btn" data-target="contact">Contact</button>
       </nav>
-
     </aside>
 
-
-    <!-- RIGHT CONTENT -->
     <main class="content">
 
-      <!-- HELLO -->
-      <section class="page" id="hello">
-
-        <div class="text">
-
-          <p>
-            I am a writer and editor based in Berlin.
-          </p>
-
-          <p>
-            As of late, I'm working as an Editorial Assistant at
-            <a href="#">Cabinet Magazine</a>.
-            I also co-run
-            <a href="http://choochoopress.com/" target="_blank">
-              Choo Choo Press
-            </a>,
-            a Risograph zine press, with my friend
-            <a href="https://emilybluedorn.com/" target="_blank">
-              Emily Bluedorn
-            </a>,
-            who also happened to make the painting above.
-          </p>
-
-          <p>
-            Other non-literary interests and pleasures include:
-            diners (Waffle House counts), desserts of almost every
-            variety, artistic collaboration, going to the movies,
-            and Hawaiian shirts.
-          </p>
-
-        </div>
-
+      <section id="hello" class="panel">
+        <div class="hello-photo"><img src="TaylorNYC.jpg" alt="Taylor Zhang in New York City"></div>
+        <p>I am a writer and editor based in Berlin.</p>
+        <p>As of late, I'm working as an Editorial Assistant at <a href="https://cabinetmagazine.org/" target="_blank" rel="noopener">Cabinet Magazine</a>. I also co-run <a href="http://choochoopress.com/" target="_blank" rel="noopener">Choo Choo Press</a>, a Risograph zine press, with my friend <a href="https://emilybluedorn.com/" target="_blank" rel="noopener">Emily Bluedorn</a>, who also happened to make the painting above.</p>
+        <p>Other non-literary interests and pleasures include: diners (Waffle House counts), desserts of almost every variety, artistic collaboration, going to the movies, and Hawaiian shirts.</p>
       </section>
 
+      <section id="publications" class="panel">
+        <div class="pub-columns">
 
-      <!-- PUBLICATIONS -->
-      <section class="page" id="publications">
-
-        <div class="publications-grid">
-
-          <!-- POETRY -->
-          <div class="publication-category">
-
-            <p><b>Poetry:</b></p>
-
-            <p>
-              <a href="https://bayoumagazine.org/issue-78/" target="_blank">
-                "Billet Doux,"
-              </a>
-              (Bayou Magazine, 2024)
-            </p>
-
-            <p>
-              <a href="https://www.poetlore.com/volume-117-winter-spring-2023/" target="_blank">
-                “Marsh,”
-              </a>
-              (Poet Lore, 2023)
-            </p>
-
-            <p>
-              <a href="https://www.therationalcreature.com/store/The-Rational-Creature-Volume-9-p539285006" target="_blank">
-                “Candyland Haibun,” "I-Towards a Definition,"
-              </a>
-              (The Rational Creature, 2023)
-            </p>
-
-            <p>
-              <a href="https://www.cortlandreview.com/issue-89/taylor-zhang/" target="_blank">
-                “Plastic Summer,”
-              </a>
-              (The Cortland Review, 2022)
-            </p>
-
-            <p>
-              “Still More Beautiful,” Winter 2021.
-              Emily Bluedorn animated
-              <a href="https://emilybluedorn.com/#stillmorebeautiful" target="_blank">
-                a reading
-              </a>
-              of this poem to lovely effect.
-            </p>
-
-            <p>
-              <a href="https://muse.jhu.edu/article/796472" target="_blank">
-                “Pure Pleasure,”
-              </a>
-              (The Massachusetts Review, 2021)
-            </p>
-
-            <p>
-              <a href="https://vassar-review.vassarspaces.net/wp-content/uploads/2021/11/VR2021-F-Pages-1.pdf" target="_blank">
-                "Self Portrait as a Lachrymal Vase," "Swarovski Bright,"
-              </a>
-              (The Vassar Review, 2021)
-            </p>
-
-            <p>
-              <a href="https://checkout.square.site/merchant/MLY04CKYBDN6Q/checkout/TS43VMQB4ZRIA5HWC7G7YGBQ/" target="_blank">
-                “A Softer Kind of Drowning,” “Imitation Crab,”
-              </a>
-              (The Louisville Review, 2020)
-              <a href="http://www.versedaily.org/2021/asofterkindofdrowning.shtml" target="_blank">
-                “A Softer Kind of Drowning”
-              </a>
-              reprinted in Verse Daily, Spring 2021.
-            </p>
-
+          <div class="pub-column">
+            <h2>Poetry:</h2>
+            <ul>
+              <li>&#8220;<a href="https://bayoumagazine.org/issue-78/">Billet Doux,</a>&#8221; (Bayou Magazine, 2024)</li>
+              <li>&#8220;<a href="https://www.poetlore.com/volume-117-winter-spring-2023/">Marsh,</a>&#8221; (Poet Lore, 2023)</li>
+              <li>&#8220;<a href="https://www.therationalcreature.com/store/The-Rational-Creature-Volume-9-p539285006">Candyland Haibun,</a>&#8221; &#8220;<a href="https://www.therationalcreature.com/store/The-Rational-Creature-Volume-9-p539285006">I-Towards a Definition,</a>&#8221; (The Rational Creature, 2023)</li>
+              <li>&#8220;<a href="https://www.cortlandreview.com/issue-89/taylor-zhang/">Plastic Summer,</a>&#8221; (The Cortland Review, 2022)</li>
+              <li>&#8220;Still More Beautiful,&#8221; Winter 2021. Emily Bluedorn animated <a href="https://emilybluedorn.com/#stillmorebeautiful">a reading</a> of this poem to lovely effect.</li>
+              <li>&#8220;<a href="https://muse.jhu.edu/article/796472">Pure Pleasure,</a>&#8221; (The Massachusetts Review, 2021)</li>
+              <li>&#8220;<a href="https://vassar-review.vassarspaces.net/wp-content/uploads/2021/11/VR2021-F-Pages-1.pdf">Self Portrait as a Lachrymal Vase,</a>&#8221; &#8220;<a href="https://vassar-review.vassarspaces.net/wp-content/uploads/2021/11/VR2021-F-Pages-1.pdf">Swarovski Bright,</a>&#8221; (The Vassar Review, 2021)</li>
+              <li>&#8220;<a href="https://checkout.square.site/merchant/MLY04CKYBDN6Q/checkout/TS43VMQB4ZRIA5HWC7G7YGBQ/">A Softer Kind of Drowning,</a>&#8221; &#8220;<a href="https://checkout.square.site/merchant/MLY04CKYBDN6Q/checkout/TS43VMQB4ZRIA5HWC7G7YGBQ/">Imitation Crab,</a>&#8221; (The Louisville Review, 2020) &#8220;A Softer Kind of Drowning&#8221; <a href="http://www.versedaily.org/2021/asofterkindofdrowning.shtml">reprinted in Verse Daily</a>, 2021.</li>
+            </ul>
           </div>
 
-
-          <!-- NONFICTION -->
-          <div class="publication-category">
-
-            <p><b>Nonfiction:</b></p>
-
-            <p>
-              <a href="https://sinetheta.net/30.html" target="_blank">
-                "Executions,"
-              </a>
-              (Sine Theta Magazine, 2024)
-            </p>
-
-            <p>
-              <a href="https://salthilljournal.net/sh48" target="_blank">
-                "Love Letter to Ben L.,"
-              </a>
-              (Salt Hill Journal, 2022)
-              Nominated for a Pushcart Prize.
-            </p>
-
-            <p>
-              <a href="https://www.thedriftmag.com/mention/summer-2020/" target="_blank">
-                “Susan Baker’s How to Humiliate Your Peeping Tom,”
-                “The Six Times Future Raps ‘Nobu’ on Jumpman,”
-              </a>
-              (The Drift Magazine, 2020)
-            </p>
-
+          <div class="pub-column">
+            <h2>Nonfiction:</h2>
+            <ul>
+              <li>&#8220;<a href="https://sinetheta.net/30.html">Executions,</a>&#8221; (Sine Theta Magazine, 2024)</li>
+              <li>&#8220;<a href="https://salthilljournal.net/sh48">Love Letter to Ben L.,</a>&#8221; (Salt Hill Journal, 2022) Nominated for a Pushcart Prize.</li>
+              <li>&#8220;<a href="https://www.thedriftmag.com/mention/summer-2020/">Susan Baker&#8217;s How to Humiliate Your Peeping Tom,</a>&#8221; &#8220;<a href="https://www.thedriftmag.com/mention/summer-2020/">The Six Times Future Raps &#8216;Nobu&#8217; on Jumpman,</a>&#8221; (The Drift Magazine, 2020)</li>
+            </ul>
           </div>
 
-
-          <!-- FICTION -->
-          <div class="publication-category">
-
-            <p><b>Fiction:</b></p>
-
-            <p>
-              <a href="https://washington-college.square.site/product/cherry-tree-a-national-literary-journal-current-issue-1-year-subscription-/195?cp=true&sa=false&sbp=false&q=false&category_id=3" target="_blank">
-                "Now and Forever,"
-              </a>
-              (Cherry Tree, 2024)
-            </p>
-
+          <div class="pub-column">
+            <h2>Fiction:</h2>
+            <ul>
+              <li>&#8220;<a href="https://washington-college.square.site/product/cherry-tree-a-national-literary-journal-current-issue-1-year-subscription-/195?cp=true&sa=false&sbp=false&q=false&category_id=3">Now and Forever,</a>&#8221; (Cherry Tree, 2024)</li>
+            </ul>
           </div>
 
         </div>
-
       </section>
 
-
-      <!-- CONTACT -->
-      <section class="page" id="contact">
-
-        <div class="text">
-
-          <p>
-            If you’d like to work together or just chat,
-            you can reach me here:
-          </p>
-
-          <p>
-            Instagram:
-            <a href="https://www.instagram.com/tay.zhang/" target="_blank">
-              @tay.zhang
-            </a>
-            <br>
-
-            Twitter:
-            <a href="https://twitter.com/tayxzhang?lang=en" target="_blank">
-              @tayxzhang
-            </a>
-            <br>
-
-            Email:
-            <a href="mailto:taylorzhangx@gmail.com">
-              taylorzhangx@gmail.com
-            </a>
-          </p>
-
-        </div>
-
+      <section id="contact" class="panel">
+        <p>If you&#8217;d like to work together or just chat, you can reach me here:</p>
+        <p>
+          Instagram: <a href="https://www.instagram.com/tay.zhang/" target="_blank" rel="noopener">@tay.zhang</a><br>
+          Twitter: <a href="https://twitter.com/tayxzhang?lang=en" target="_blank" rel="noopener">@tayxzhang</a><br>
+          Email: <a href="mailto:taylorzhangx@gmail.com">taylorzhangx@gmail.com</a>
+        </p>
       </section>
 
     </main>
 
-  </main>
+  </div>
 
+<script>
+  var buttons = document.querySelectorAll('.nav-btn');
+  var panels = document.querySelectorAll('.panel');
 
-  <!-- NAVIGATION SCRIPT -->
-  <script>
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var target = btn.getAttribute('data-target');
 
-    const navLinks = document.querySelectorAll(".nav-link");
-    const pages = document.querySelectorAll(".page");
+      buttons.forEach(function (b) { b.classList.remove('active'); });
+      panels.forEach(function (p) { p.classList.remove('visible'); });
 
-    navLinks.forEach(link => {
-
-      link.addEventListener("click", () => {
-
-        const pageName = link.dataset.page;
-        const page = document.getElementById(pageName);
-
-        // If clicking the currently open page,
-        // close everything and return to the blank state.
-        if (link.classList.contains("active")) {
-
-          link.classList.remove("active");
-          page.classList.remove("active");
-
-          return;
-        }
-
-
-        // Close all pages and deactivate all navigation.
-        navLinks.forEach(item => {
-          item.classList.remove("active");
-        });
-
-        pages.forEach(item => {
-          item.classList.remove("active");
-        });
-
-
-        // Open the selected page.
-        link.classList.add("active");
-        page.classList.add("active");
-
-      });
-
+      btn.classList.add('active');
+      document.getElementById(target).classList.add('visible');
     });
-
-  </script>
+  });
+</script>
 
 </body>
-
 </html>
