@@ -8,11 +8,16 @@
 
   html, body {
     margin: 0;
+    background: #ffffff;
     color: #000000;
     font-family: 'Romie', Fallback, serif;
   }
 
   ::selection {
+    background: #ff00d4;
+  }
+
+  a::selection {
     background: #ff00d4;
     color: #ffffff;
   }
